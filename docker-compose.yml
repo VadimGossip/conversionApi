@@ -20,7 +20,7 @@ services:
       - 8090:8090
     build:
       context: .
-      dockerfile: dockerfile
+      dockerfile: Dockerfile
     environment:
       API_HTTP_PORT: 8080
       API_METRICS_HTTP_PORT: 9090
