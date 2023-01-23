@@ -17,7 +17,7 @@ func initHttpRouter(app *App) {
 	s.Use(gin.Recovery())
 	s.Use(gin.Logger())
 
-	convController := conversion.NewConvController()
+	convController := conversion.NewConvController(app.convService)
 	s.GET("/api/sms/received", convController.ConversionRequest)
 	s.POST("/api/sms/received", convController.ConversionRequest)
 }

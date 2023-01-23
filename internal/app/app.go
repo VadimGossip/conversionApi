@@ -44,7 +44,7 @@ func (app *App) Run() {
 		logrus.Fatalf("Fail to connect ampq %s", err)
 	}
 
-	app.Factory = newFactory(qAdapter)
+	app.Factory = newFactory(app.cfg, qAdapter)
 
 	go func() {
 		app.apiHttpServer = NewHttpServer(app.cfg.ApiHttpServer.Port)

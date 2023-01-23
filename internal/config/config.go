@@ -26,14 +26,9 @@ func Init() (*domain.Config, error) {
 	if err := setFromEnv(&cfg); err != nil {
 		return nil, err
 	}
+	//temp
+	cfg.AMPQServerConfig.ConvQueueName = "ConversionQueue"
 
 	logrus.Infof("Config %v", cfg)
 	return &cfg, nil
 }
-
-//func init() {
-//	err := godotenv.Load()
-//	if err != nil {
-//		log.Fatal("Error loading .env file")
-//	}
-//}
