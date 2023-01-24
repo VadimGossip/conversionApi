@@ -29,8 +29,8 @@ func (s *service) PublishMsg() error {
 
 	// Attempt to publish a message to the queue.
 	if err := s.convQueueChan.Publish(
-		"",
-		s.convQueueName,
+		"ConvWorkExchange",
+		"ConvWorkQueue",
 		false,
 		false,
 		message,

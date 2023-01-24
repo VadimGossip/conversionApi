@@ -12,26 +12,6 @@ services:
     networks:
       - dev-network
 
-  # Create service with Fiber sender.
-  convapi:
-    container_name: convapi
-    ports:
-      - 8080:8080
-      - 8090:8090
-    build:
-      context: .
-      dockerfile: Dockerfile
-    environment:
-      API_HTTP_PORT: 8080
-      API_METRICS_HTTP_PORT: 9090
-      AMPQ_SERVER_URL: amqp://guest:guest@message-broker:5672/
-      AMPQ_CONVERSION_QUEUE: ConversionQueue
-    restart: always
-    networks:
-      - dev-network
-    depends_on:
-      - message-broker
-
 networks:
   # Create a new Docker network.
   dev-network:
